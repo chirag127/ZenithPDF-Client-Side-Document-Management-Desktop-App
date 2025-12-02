@@ -1,36 +1,28 @@
-# Badges Configuration
-# This file defines the badges to be displayed in the README.
-# All badge URLs are dynamically generated based on the repository name and username.
-
 badges:
   - name: Build Status
-    url: "https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/actions/workflows/ci.yml"
-    image_url: "https://img.shields.io/github/actions/workflow/status/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/ci.yml?style=flat-square&logo=githubactions"
-    markdown: "[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/ci.yml?style=flat-square&logo=githubactions)](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/actions/workflows/ci.yml)"
+    url: "https://img.shields.io/github/actions/workflow/status/chirag127/ZenithPDF-Document-Management-Desktop-App/ci.yml?style=flat-square"
+    markdown: "[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ZenithPDF-Document-Management-Desktop-App/ci.yml?style=flat-square)](https://github.com/chirag127/ZenithPDF-Document-Management-Desktop-App/actions/workflows/ci.yml)"
+
   - name: Code Coverage
-    url: "https://app.codecov.io/github/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App"
-    image_url: "https://img.shields.io/codecov/c/github/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App?style=flat-square&logo=codecov"
-    markdown: "[![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App?style=flat-square&logo=codecov)](https://app.codecov.io/github/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App)"
-  - name: Tech Stack (TypeScript)
-    image_url: "https://img.shields.io/badge/Tech%20Stack-TypeScript-blue?style=flat-square&logo=typescript"
-    markdown: "[![Tech Stack (TypeScript)](https://img.shields.io/badge/Tech%20Stack-TypeScript-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)"
-  - name: Tech Stack (Vite)
-    image_url: "https://img.shields.io/badge/Tech%20Stack-Vite-orange?style=flat-square&logo=vite"
-    markdown: "[![Tech Stack (Vite)](https://img.shields.io/badge/Tech%20Stack-Vite-orange?style=flat-square&logo=vite)](https://vitejs.dev/)"
-  - name: Tech Stack (TailwindCSS)
-    image_url: "https://img.shields.io/badge/Tech%20Stack-TailwindCSS-teal?style=flat-square&logo=tailwindcss"
-    markdown: "[![Tech Stack (TailwindCSS)](https://img.shields.io/badge/Tech%20Stack-TailwindCSS-teal?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)"
-  - name: Tech Stack (Tauri)
-    image_url: "https://img.shields.io/badge/Tech%20Stack-Tauri-purple?style=flat-square&logo=tauri"
-    markdown: "[![Tech Stack (Tauri)](https://img.shields.io/badge/Tech%20Stack-Tauri-purple?style=flat-square&logo=tauri)](https://tauri.app/)"
-  - name: Tech Stack (Rust)
-    image_url: "https://img.shields.io/badge/Tech%20Stack-Rust-red?style=flat-square&logo=rust"
-    markdown: "[![Tech Stack (Rust)](https://img.shields.io/badge/Tech%20Stack-Rust-red?style=flat-square&logo=rust)](https://www.rust-lang.org/)"
+    url: "https://img.shields.io/codecov/c/github/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square"
+    markdown: "[![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square)](https://codecov.io/gh/chirag127/ZenithPDF-Document-Management-Desktop-App)"
+
+  - name: Language
+    url: "https://img.shields.io/badge/Language-TypeScript-3178C6?style=flat-square"
+    markdown: "[![Language](https://img.shields.io/badge/Language-TypeScript-3178C6?style=flat-square)]()"
+
+  - name: Frameworks
+    url: "https://img.shields.io/badge/Frameworks-Vite%20%7C%20Tauri-F37342?style=flat-square"
+    markdown: "[![Frameworks](https://img.shields.io/badge/Frameworks-Vite%20%7C%20Tauri-F37342?style=flat-square)]()"
+
   - name: License
-    url: "https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/blob/main/LICENSE"
-    image_url: "https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square&logo=creativecommons"
-    markdown: "[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square&logo=creativecommons)](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/blob/main/LICENSE)"
+    url: "https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue?style=flat-square"
+    markdown: "[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue?style=flat-square)](https://github.com/chirag127/ZenithPDF-Document-Management-Desktop-App/blob/main/LICENSE)"
+
   - name: GitHub Stars
-    url: "https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App"
-    image_url: "https://img.shields.io/github/stars/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App?style=flat-square&logo=github"
-    markdown: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App?style=flat-square&logo=github)](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App)"
+    url: "https://img.shields.io/github/stars/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square"
+    markdown: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square)](https://github.com/chirag127/ZenithPDF-Document-Management-Desktop-App)"
+
+  - name: Formatter Status (Biome)
+    url: "https://img.shields.io/badge/Formatter-Biome-747E9A?style=flat-square"
+    markdown: "[![Formatter](https://img.shields.io/badge/Formatter-Biome-747E9A?style=flat-square)]()"
