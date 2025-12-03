@@ -1,62 +1,51 @@
 name: CI
 
-# Trigger the workflow on push events to the main branch or on pull requests
-# targeting the main branch.
+# This workflow triggers on push events to the main branch and pull requests.
+# It is designed to build and test the ZenithPDF desktop application.
+
 on:
   push:
-    branches: ['main']
+    branches: [ main ]
   pull_request:
-    branches: ['main']
+    branches: [ main ]
 
-# Define the jobs that will run as part of the workflow.
 jobs:
   build-and-test:
-    # Use the latest Ubuntu Linux environment for the build.
+    name: Build & Test
     runs-on: ubuntu-latest
 
-    # Define the steps to be executed in this job.
     steps:
-      # Step 1: Check out the repository code.
-      - name: Checkout code
+      - name: 🚀 Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js environment.
-      # Uses Node.js 20.x, which is compatible with Vite and other modern frontend tools.
-      - name: Setup Node.js
+      - name: 📦 Set up Node.js (Required for Vite/Tauri)
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          cache: 'npm' # Enable caching for npm packages to speed up subsequent runs.
+          node-version: '20' # Use a specific Node.js version compatible with Vite/Tauri
+          cache: 'npm' # Cache npm dependencies
 
-      # Step 3: Install project dependencies.
-      # Uses npm ci for faster, more reliable installations based on the package-lock.json.
-      - name: Install dependencies
-        run: npm ci
+      - name: 🛠️ Install Dependencies
+        run: npm ci # Use 'ci' for clean installs in CI environments
 
-      # Step 4: Run linting and formatting checks.
-      # This step ensures code quality and consistency.
-      - name: Lint and Format Check
-        run: npm run lint # Assuming 'lint' script in package.json runs Biome/Ruff.
+      - name: 📐 Lint and Format Check (Biome)
+        run: npx @biomejs/biome check --apply-unsafe ./src # Run lint and format checks, apply fixes for unsafe ones if applicable. For CI, typically just 'check' is used to fail on violations.
 
-      # Step 5: Run unit tests.
-      # Uses Vitest for fast unit testing.
-      - name: Run Unit Tests
-        run: npm test # Assuming 'test' script in package.json runs Vitest.
+      - name: 🧪 Unit and Integration Tests (Vitest)
+        run: npm run test:unit # Assumes a script 'test:unit' exists in package.json that runs Vitest
 
-      # Step 6: Build the project.
-      # This step compiles the TypeScript code and bundles assets using Vite.
-      - name: Build Project
-        run: npm run build # Assuming 'build' script in package.json runs Vite build.
+      - name: 📸 End-to-End Tests (Playwright)
+        run: npm run test:e2e # Assumes a script 'test:e2e' exists in package.json that runs Playwright tests
 
-      # Step 7: (Optional) Upload build artifacts.
-      # This allows downloading the built application for manual testing or deployment.
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: zenithpdf-desktop-app
-          path: dist/ # Adjust path if your build output directory is different.
+      - name: 📦 Build Desktop Application (Tauri)
+        run: npm run build:tauri # Assumes a script 'build:tauri' exists in package.json for building the Tauri app
+        env:
+          # Environment variables required for building, e.g., signing certificates, API keys
+          TAURI_SKIP_SIGN: 1 # Example: Skip signing for CI builds if not necessary or handled elsewhere
+          # CI=true # Standard CI environment variable
 
-      # Step 8: (Optional) Run E2E tests if Playwright is configured.
-      # This step requires additional setup for Playwright browser binaries and test execution.
-      # - name: Run End-to-End Tests
-      #   run: npm run e2e # Assuming 'e2e' script in package.json runs Playwright tests.
+      # Optional: Upload build artifacts if needed for distribution
+      # - name: ⬆️ Upload Artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: zenithpdf-build
+      #     path: src-tauri/target/release/ # Path to built binaries
